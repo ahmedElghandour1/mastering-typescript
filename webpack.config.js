@@ -1,11 +1,11 @@
 const {resolve} = require('path');
-
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
  /** @type {import('webpack').Configuration} */
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/main.ts',
   devtool: 'inline-source-map',
   output: {
-    filename: "[name].[hash].js",
+    filename: "[name].js",
     path: resolve(__dirname, 'dist'),
   },
     module: {
@@ -17,6 +17,9 @@ module.exports = {
       },
     ],
   },
+    plugins: [
+      new CleanWebpackPlugin(),
+  ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
